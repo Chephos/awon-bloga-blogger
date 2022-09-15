@@ -26,12 +26,14 @@
 {% for comment in post.comments.all %}
 <div class="comment">
   <div class="date">{{ comment.created_date }}</div>
-{% if comment.approved_comment %}
-  <a class="btn btn-default" href="{% url 'comment_remove' post.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
-  <a class="btn btn-default" href="{% url 'comment_approve' post.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+
+  <!-- <a class="btn btn-default" href="{% url 'comment_remove' post.pk %}"><span class="glyphicon glyphicon-ok">x</span></a>
+  <a class="btn btn-default" href="{% url 'comment_approve' post.pk %}"><span class="glyphicon glyphicon-ok">v</span></a> -->
   <strong>{{ comment.author }}</strong>
   <p>{{ comment.text|linebreaks }}</p>
+
 </div>
+<hr>
 {% empty %}
   <p>No comments here yet :(</p>
 {% endfor %}
